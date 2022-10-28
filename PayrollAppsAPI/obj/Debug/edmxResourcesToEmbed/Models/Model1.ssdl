@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PayrollDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BirthDay">
+    <Key>
+      <PropertyRef Name="BirthDayId" />
+    </Key>
+    <Property Name="BirthDayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="BirthDayPackage" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Created" Type="datetime" />
+    <Property Name="Updated" Type="datetime" />
+    <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Bonus">
+    <Key>
+      <PropertyRef Name="BonusId" />
+    </Key>
+    <Property Name="BonusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="BonusName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Bonus" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OtherBonus" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Created" Type="datetime" />
+    <Property Name="Updated" Type="datetime" />
+    <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="OtherName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="NextOfKin" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddressOfNextOfKin" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhoneNoOfNextOfKin" Type="nvarchar" MaxLength="50" />
+    <Property Name="StateOfOrigin" Type="nvarchar" MaxLength="50" />
+    <Property Name="Grade" Type="nvarchar" MaxLength="50" />
+    <Property Name="Department" Type="nvarchar" MaxLength="50" />
+    <Property Name="Created" Type="datetime" />
+    <Property Name="Updated" Type="datetime" />
+    <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="FormerStaff">
+    <Key>
+      <PropertyRef Name="FormerStaffId" />
+    </Key>
+    <Property Name="FormerStaffId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="ExitDate" Type="datetime" />
+    <Property Name="Reason" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExitAllowance" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Created" Type="datetime" />
+    <Property Name="Updated" Type="datetime" />
+    <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Hmo">
+    <Key>
+      <PropertyRef Name="HmoId" />
+    </Key>
+    <Property Name="HmoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="HmoName" Type="nvarchar" MaxLength="50" />
+    <Property Name="HmoAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="HmoEmailAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="HmoPhoneNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Pacckage" Type="nvarchar" MaxLength="50" />
+    <Property Name="Created" Type="datetime" />
+    <Property Name="Updated" Type="datetime" />
+    <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Leave">
+    <Key>
+      <PropertyRef Name="LeaveId" />
+    </Key>
+    <Property Name="LeaveId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="Period" Type="nvarchar" MaxLength="50" />
+    <Property Name="Bonus" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Created" Type="datetime" />
+    <Property Name="Updated" Type="datetime" />
+    <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Loan">
+    <Key>
+      <PropertyRef Name="LoanId" />
+    </Key>
+    <Property Name="LoanId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="LoanName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Deduction" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="Created" Type="datetime" />
+    <Property Name="Updated" Type="datetime" />
+    <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Payroll">
+    <Key>
+      <PropertyRef Name="PayrollId" />
+    </Key>
+    <Property Name="PayrollId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Basic" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Transport" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Medical" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Dressing" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Tax" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="GrossPay" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NetPay" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Created" Type="datetime" />
+    <Property Name="Updated" Type="datetime" />
+    <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="PaySlip">
+    <Key>
+      <PropertyRef Name="PaySlipId" />
+    </Key>
+    <Property Name="PaySlipId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="PayrollId" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Basic" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Transport" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Medical" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Dressing" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Bonus" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Loan" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Leave" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Tax" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="GrossPay" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NetPay" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Created" Type="datetime" />
+    <Property Name="Updated" Type="datetime" />
+    <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Promotion">
+    <Key>
+      <PropertyRef Name="PromotionId" />
+    </Key>
+    <Property Name="PromotionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" />
+    <Property Name="Grade" Type="nvarchar" MaxLength="50" />
+    <Property Name="Assessment" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NewLevel" Type="nvarchar" MaxLength="50" />
+    <Property Name="OldLevel" Type="nvarchar" MaxLength="50" />
+    <Property Name="PromotionDate" Type="datetime" />
+    <Property Name="Created" Type="datetime" />
+    <Property Name="Updated" Type="datetime" />
+    <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="OtherNames" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="ConfirmPassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Created" Type="datetime" />
+    <Property Name="Updated" Type="datetime" />
+    <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityContainer Name="PayrollDataModelStoreContainer">
+    <EntitySet Name="BirthDay" EntityType="Self.BirthDay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bonus" EntityType="Self.Bonus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FormerStaff" EntityType="Self.FormerStaff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hmo" EntityType="Self.Hmo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Leave" EntityType="Self.Leave" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Loan" EntityType="Self.Loan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payroll" EntityType="Self.Payroll" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaySlip" EntityType="Self.PaySlip" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Promotion" EntityType="Self.Promotion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
